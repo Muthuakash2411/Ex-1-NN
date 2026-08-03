@@ -37,11 +37,66 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
 
+````python
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+
+data = pd.read_csv("Churn_Modelling.csv", index_col="RowNumber")
+
+
+print("DATASET:")
+print(data.head())
+
+print("\nMISSING VALUES:")
+print(data.isnull().sum())
+
+print("\nDUPLICATE VALUES:")
+print(data.duplicated().sum())
+
+data = data.drop(['Surname', 'Geography', 'Gender'], axis=1)
+
+X = data.iloc[:, :-1].values
+Y = data.iloc[:, -1].values.reshape(-1,1)
+
+x_scaler = MinMaxScaler()
+X = x_scaler.fit_transform(X)
+
+y_scaler = MinMaxScaler()
+Y = y_scaler.fit_transform(Y)
+
+print("\nX VALUES:")
+print(X)
+
+print("\nY VALUES:")
+print(Y)
+
+Xtrain, Xtest, Ytrain, Ytest = train_test_split(
+    X, Y, test_size=0.2, random_state=42
+)
+
+print("\nX TRAIN:")
+print(Xtrain)
+
+print("\nX TEST:")
+print(Xtest)
+
+print("\nY TRAIN:")
+print(Ytrain)
+
+print("\nY TEST:")
+print(Ytest)
+````
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+<img width="1090" height="567" alt="image" src="https://github.com/user-attachments/assets/6212bd70-238e-45a1-8e0c-33cae04f3817" />
+
+<img width="1096" height="663" alt="image" src="https://github.com/user-attachments/assets/a5467552-adca-42de-9f09-2b961bb3eb8d" />
+
+<img width="1017" height="666" alt="image" src="https://github.com/user-attachments/assets/06e5ba8b-aeaf-4545-9e8e-516735ec1da5" />
+
+<img width="1062" height="428" alt="image" src="https://github.com/user-attachments/assets/9ecb2762-e49d-4e36-824e-12aba37b71e7" />
 
 
 ## RESULT:
