@@ -29,12 +29,18 @@ Another aspect is that the data set should be formatted in such a way that more 
 
 
 ## ALGORITHM:
-STEP 1:Importing the libraries<BR>
-STEP 2:Importing the dataset<BR>
-STEP 3:Taking care of missing data<BR>
-STEP 4:Encoding categorical data<BR>
-STEP 5:Normalizing the data<BR>
-STEP 6:Splitting the data into test and train<BR>
+
+Step 1: Import the required libraries such as Pandas, MinMaxScaler, and train_test_split.
+
+Step 2: Load the Churn_Modelling.csv dataset and check for missing values and duplicate records.
+
+Step 3: Remove the unnecessary columns (Surname, Geography, and Gender).
+
+Step 4: Split the dataset into input (X) and output (Y), then apply MinMaxScaler to normalize both X and Y.
+
+Step 5: Split the scaled dataset into training (80%) and testing (20%) sets using train_test_split().
+
+Step 6: Display the scaled X and Y values along with Xtrain, Xtest, Ytrain, and Ytest.
 
 ##  PROGRAM:
 
